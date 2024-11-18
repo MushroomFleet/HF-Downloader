@@ -1,6 +1,8 @@
 # HuggingFace Repository Downloader
 
 A tool to download complete repositories from HuggingFace Hub, featuring both Web UI and command-line interfaces.
+<br/>
+![HF-Downloader Demo](https://raw.githubusercontent.com/MushroomFleet/HF-Downoader/refs/heads/main/demo-images/HF-DL-v1.8.0-beta.png)
 
 ## Web Interface Usage
 
