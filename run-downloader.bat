@@ -8,9 +8,9 @@ if not exist "venv" (
 )
 
 if "%~1"=="" (
-    set /p REPO_ID="Enter repository ID (e.g. username/repo-name): "
+    set /p REPO_IDS="Enter repository IDs (comma-separated, e.g. user/repo1,user/repo2): "
 ) else (
-    set REPO_ID=%~1
+    set REPO_IDS=%~1
 )
 
 if "%~2"=="" (
@@ -21,7 +21,7 @@ if "%~2"=="" (
 
 call venv\Scripts\activate
 
-python main.py "%REPO_ID%" "%SAVE_DIR%" %3 %4
+python main.py "%REPO_IDS%" "%SAVE_DIR%" %3 %4
 
 call deactivate
 pause

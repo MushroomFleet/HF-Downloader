@@ -1,39 +1,34 @@
 # HuggingFace Repository Downloader
 
-A command-line tool to download complete repositories from HuggingFace Hub, with support for batch downloading multiple repositories.
+A tool to download complete repositories from HuggingFace Hub, featuring both Web UI and command-line interfaces.
 
-## Features
-- Download entire HuggingFace repositories with a single command
-- Batch download multiple repositories via queue system
-- Support for specific branches and tags
-- Progress tracking during downloads
-- Windows batch scripts for easy setup and execution
-- Download status reporting for each repository
+## Web Interface Usage
 
-## Installation
+1. **Install Dependencies**
+   - Run `install.bat` to set up the virtual environment
+   - Wait for the installation to complete
 
-### Windows
-1. Ensure Python 3.7+ is installed
-2. Run `install.bat` to set up the virtual environment and dependencies
-3. Start downloading with `run-downloader.bat`
+2. **Launch Web Interface**
+   - Run `run-web.bat` to start the web server
+   - Open `http://localhost:7860` in your browser
 
-### Manual Installation
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
+3. **Download Repositories**
+   - Enter repository IDs (comma-separated): `username/repo-name,username/repo-name2`
+   - Specify save directory path
+   - Optional: Set revision/branch (default: main)
+   - Click "Download Repositories"
+   - Monitor download progress and results in the status area
 
-## Usage
+## Command Line Usage
 
-### Command Line
-```bash
-python main.py "username/repo-name,username/repo-name2" ./save/path [--revision branch-or-tag]
-```
-
-### Windows Batch Script
+### Windows Quick Start
 ```bash
 run-downloader.bat "username/repo-name,username/repo-name2" ./save/path
+```
+
+### Manual Command
+```bash
+python main.py "username/repo-name,username/repo-name2" ./save/path [--revision branch-or-tag]
 ```
 
 ### Examples
@@ -41,26 +36,38 @@ run-downloader.bat "username/repo-name,username/repo-name2" ./save/path
 # Download multiple repositories
 python main.py "THUDM/CogVideoX-5b-I2V,THUDM/CogVideoX1.5-5B" ./models
 
-# Download multiple repos with specific revision
+# Download with specific revision
 python main.py "bert-base-uncased,gpt2-medium" ./models --revision v1.0
-
-# Interactive mode (Windows)
-run-downloader.bat
 ```
 
-### Queue Operation
-1. Enter repositories as comma-separated list without spaces between entries:
-   ```
-   username/repo1,username/repo2,username/repo3
-   ```
-2. Downloads will process sequentially with progress tracking
-3. Final status report shows success/failure for each repository
+## Features
+- Download entire HuggingFace repositories
+- Batch download multiple repositories
+- Support for specific branches and tags
+- Progress tracking
+- Status reporting for each repository
+- Web and command-line interfaces
 
 ## Requirements
 - Python 3.7+
 - huggingface_hub>=0.20.3
 - tqdm>=4.66.2
 - requests>=2.31.0
+- gradio==4.44.1
+
+## Installation
+
+### Windows Setup
+1. Ensure Python 3.7+ is installed
+2. Run `install.bat`
+3. Use either `run-web.bat` or `run-downloader.bat`
+
+### Manual Setup
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
 
 ## License
 MIT
